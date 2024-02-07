@@ -13,6 +13,8 @@ if __name__ == "__main__":
     window.geometry(f"{WIDTH * UNIT}x{HEIGHT * UNIT}")
     window.title("Chess Board and Pieces")
 
+    # TODO class for each piece
+    # TODO move
     file_path: str = "./01_chess_board_and_pieces/img/"
     king_bk = PhotoImage(Image.open(file_path + "king_bk.png").resize((50, 50)))
     king_wh = PhotoImage(Image.open(file_path + "king_wh.png").resize((50, 50)))
@@ -24,6 +26,8 @@ if __name__ == "__main__":
     knight_wh = PhotoImage(Image.open(file_path + "knight_wh.png").resize((50, 50)))
     rook_bk = PhotoImage(Image.open(file_path + "rook_bk.png").resize((50, 50)))
     rook_wh = PhotoImage(Image.open(file_path + "rook_wh.png").resize((50, 50)))
+    pawn_bk = PhotoImage(Image.open(file_path + "pawn_bk.png").resize((50, 50)))
+    pawn_wh = PhotoImage(Image.open(file_path + "pawn_wh.png").resize((50, 50)))
 
     canvas = tk.Canvas(window, bg='white',
                        height=HEIGHT * UNIT,
@@ -37,7 +41,7 @@ if __name__ == "__main__":
         x0, y0, x1, y1 = 0, row, HEIGHT * UNIT, row
         canvas.create_line(x0, y0, x1, y1, fill='black')
 
-    # Rectangle
+    # Rectangle board
     # TODO MERGE
     for col in range(0, 5):
         for row in range(0, 5):
@@ -56,25 +60,41 @@ if __name__ == "__main__":
             canvas.create_rectangle(x1, y1, x2, y2, fill='light gray')
 
     canvas.create_image(350, 50, image=king_bk)    
-    canvas.create_image(450, 750, image=king_wh)
-
     canvas.create_image(450, 50, image=queen_bk)    
-    canvas.create_image(350, 750, image=queen_wh)
-
     canvas.create_image(550, 50, image=bishop_bk)
     canvas.create_image(250, 50, image=bishop_bk)
-    canvas.create_image(550, 750, image=bishop_wh)    
-    canvas.create_image(250, 750, image=bishop_wh)
-
     canvas.create_image(650, 50, image=knight_bk)
     canvas.create_image(150, 50, image=knight_bk)
-    canvas.create_image(650, 750, image=knight_wh)    
-    canvas.create_image(150, 750, image=knight_wh)
-
     canvas.create_image(750, 50, image=rook_bk)
     canvas.create_image(50, 50, image=rook_bk)
+
+    canvas.create_image(750, 150, image=pawn_bk)
+    canvas.create_image(650, 150, image=pawn_bk)
+    canvas.create_image(550, 150, image=pawn_bk)
+    canvas.create_image(450, 150, image=pawn_bk)
+    canvas.create_image(350, 150, image=pawn_bk)
+    canvas.create_image(250, 150, image=pawn_bk)
+    canvas.create_image(150, 150, image=pawn_bk)
+    canvas.create_image(50, 150, image=pawn_bk)
+
+    canvas.create_image(450, 750, image=king_wh)
+    canvas.create_image(350, 750, image=queen_wh)
+    canvas.create_image(550, 750, image=bishop_wh)    
+    canvas.create_image(250, 750, image=bishop_wh)
+    canvas.create_image(650, 750, image=knight_wh)    
+    canvas.create_image(150, 750, image=knight_wh)
     canvas.create_image(750, 750, image=rook_wh)    
     canvas.create_image(50, 750, image=rook_wh)
+
+    canvas.create_image(750, 650, image=pawn_wh)
+    canvas.create_image(650, 650, image=pawn_wh)
+    canvas.create_image(550, 650, image=pawn_wh)
+    canvas.create_image(450, 650, image=pawn_wh)
+    canvas.create_image(350, 650, image=pawn_wh)
+    canvas.create_image(250, 650, image=pawn_wh)
+    canvas.create_image(150, 650, image=pawn_wh)
+    canvas.create_image(50, 650, image=pawn_wh)
+
 
     canvas.pack()
 
