@@ -29,18 +29,27 @@ if __name__ == "__main__":
     pawn_bk = PhotoImage(Image.open(file_path + "pawn_bk.png").resize((50, 50)))
     pawn_wh = PhotoImage(Image.open(file_path + "pawn_wh.png").resize((50, 50)))
 
-    canvas = tk.Canvas(window, bg='white',
+    canvas = tk.Canvas(window, bg="white",
                        height=HEIGHT * UNIT,
                        width=WIDTH * UNIT)
     
     # Grid
     for col in range(0, WIDTH * UNIT, UNIT):  # 0~400 by 80
         x0, y0, x1, y1 = col, 0, col, HEIGHT * UNIT
-        canvas.create_line(x0, y0, x1, y1, fill='black')
+        canvas.create_line(x0, y0, x1, y1, fill="black")
     for row in range(0, HEIGHT * UNIT, UNIT):  # 0~400 by 80
         x0, y0, x1, y1 = 0, row, HEIGHT * UNIT, row
-        canvas.create_line(x0, y0, x1, y1, fill='black')
+        canvas.create_line(x0, y0, x1, y1, fill="black")
 
+    # TODO text for postion
+    for i in range(0, 8):
+        label = tk.Label(canvas, bg="white", text=str(i + 1))
+        label.place(x=10, y=(50 + 100 * i), anchor="center")
+            
+        label = tk.Label(canvas, bg="white", text=chr(65 + i))
+        label.place(x=(50 + 100 * i), y=10, anchor="center")
+    # print(type(label))
+    
     # Rectangle board
     # TODO MERGE
     for col in range(0, 5):
@@ -49,7 +58,7 @@ if __name__ == "__main__":
             y1 = 0 + 200 * (row - 1)
             x2 = 200 + 200 * (col - 1)
             y2 = 100 + 200 * (row - 1)
-            canvas.create_rectangle(x1, y1, x2, y2, fill='light gray')
+            canvas.create_rectangle(x1, y1, x2, y2, fill="light gray")
 
     for col in range(0, 5):
         for row in range(0, 5):
@@ -57,7 +66,7 @@ if __name__ == "__main__":
             y1 = 100 + 200 * (row - 1)
             x2 = 100 + 200 * (col - 1)
             y2 = 200 + 200 * (row - 1)
-            canvas.create_rectangle(x1, y1, x2, y2, fill='light gray')
+            canvas.create_rectangle(x1, y1, x2, y2, fill="light gray")
 
     canvas.create_image(350, 50, image=king_bk)    
     canvas.create_image(450, 50, image=queen_bk)    
@@ -94,7 +103,6 @@ if __name__ == "__main__":
     canvas.create_image(250, 650, image=pawn_wh)
     canvas.create_image(150, 650, image=pawn_wh)
     canvas.create_image(50, 650, image=pawn_wh)
-
 
     canvas.pack()
 
