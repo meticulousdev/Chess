@@ -104,6 +104,10 @@ if __name__ == "__main__":
     canvas.create_image(150, 650, image=pawn_wh)
     canvas.create_image(50, 650, image=pawn_wh)
 
+    # tkinter entry
+    # ent = tk.Entry(canvas)
+    # ent.pack()
+
     canvas.pack()
 
     window.mainloop()
