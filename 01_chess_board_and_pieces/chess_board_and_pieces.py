@@ -108,6 +108,9 @@ if __name__ == "__main__":
     # ent = tk.Entry(canvas)
     # ent.pack()
 
+    # pieces selection
+    # pieces position
+
     canvas.pack()
 
     window.mainloop()
